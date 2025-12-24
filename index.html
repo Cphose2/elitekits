@@ -1,0 +1,2250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EliteKits - Premium Football Jerseys</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        /* Your CSS combined with page-specific styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #1a1a2e;
+            --secondary: #16213e;
+            --accent: #e63946;
+            --text: #333333;
+            --text-light: #666666;
+            --background: #ffffff;
+            --background-alt: #f8f9fa;
+            --border: #e1e5e9;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background-color: var(--background);
+            scroll-behavior: smooth;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navigation */
+        .navbar {
+            background: var(--primary);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+
+        .nav-logo span {
+            color: var(--accent);
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-link {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+            cursor: pointer;
+        }
+
+        .nav-link:hover {
+            color: var(--accent);
+        }
+
+        .nav-link.active {
+            color: var(--accent);
+            border-bottom: 2px solid var(--accent);
+        }
+
+        .nav-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .bar {
+            width: 25px;
+            height: 3px;
+            background: white;
+            margin: 3px 0;
+            transition: 0.3s;
+        }
+
+        /* Page Content */
+        .page-content {
+            display: none;
+            padding-top: 70px;
+        }
+
+        .page-content.active {
+            display: block;
+        }
+
+        /* Buttons */
+        .cta-button, .secondary-button, .more-info-button, .submit-button {
+            padding: 12px 30px;
+            border: none;
+            border-radius: 5px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .cta-button {
+            background: var(--accent);
+            color: white;
+            font-size: 1.1rem;
+        }
+
+        .cta-button:hover {
+            background: #d32f2f;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(230, 57, 70, 0.3);
+        }
+
+        .secondary-button {
+            background: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+
+        .secondary-button:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .more-info-button {
+            background: var(--primary);
+            color: white;
+            width: 100%;
+            text-align: center;
+            display: inline-block;
+            margin: 0.5rem 0;
+        }
+
+        .more-info-button:hover {
+            background: var(--accent);
+            transform: translateY(-2px);
+            color: white;
+            text-decoration: none;
+        }
+
+        /* HOME PAGE STYLES */
+        /* Video Hero Section */
+        .hero {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            margin-top: 70px;
+            overflow: hidden;
+        }
+
+        .hero-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 0;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            padding: 0 20px;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+
+        /* Featured Section */
+        .featured {
+            padding: 5rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: var(--primary);
+        }
+
+        .featured-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .jersey-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .jersey-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+
+        .jersey-image {
+            height: 300px;
+            overflow: hidden;
+        }
+
+        .jersey-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .jersey-card:hover .jersey-image img {
+            transform: scale(1.1);
+        }
+
+        .jersey-info {
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .jersey-info h3 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .explore-more {
+            text-align: center;
+        }
+
+        /* Features Section */
+        .features {
+            background: var(--background-alt);
+            padding: 5rem 0;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-item {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .feature-item i {
+            font-size: 3rem;
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+
+        .feature-item h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        /* SHOP PAGE STYLES */
+        .shop-header {
+            background: var(--background-alt);
+            padding: 3rem 0;
+            margin-top: 70px;
+        }
+
+        .page-title {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .page-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+
+        .page-description {
+            font-size: 1.05rem;
+            color: var(--text-light);
+            line-height: 1.7;
+            margin-top: 1.5rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 0 1rem;
+            text-align: center;
+        }
+
+        .page-description strong {
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        .shop-filters {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .filter-group label {
+            font-weight: 600;
+            color: var(--primary);
+            font-size: 0.9rem;
+        }
+
+        .filter-select {
+            padding: 8px 12px;
+            border: 2px solid var(--border);
+            border-radius: 5px;
+            background: white;
+            font-family: 'Open Sans', sans-serif;
+            min-width: 150px;
+        }
+
+        .filter-select:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+
+        /* Shop Grid */
+        .shop-grid {
+            padding: 5rem 0;
+        }
+
+        .jerseys-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .jersey-item {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .jersey-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .jersey-img {
+            position: relative;
+            height: 250px;
+            overflow: hidden;
+        }
+
+        .jersey-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .jersey-details {
+            padding: 1.5rem;
+        }
+
+        .jersey-details h3 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .jersey-tagline {
+            color: var(--text-light);
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .jersey-price {
+            font-weight: 600;
+            color: var(--accent);
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Kit Badges */
+        .kit-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            padding: 4px 8px;
+            border-radius: 3px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            color: white;
+        }
+
+        .home-kit {
+            background: var(--accent);
+        }
+
+        .away-kit {
+            background: #2c5aa0;
+        }
+
+        .third-kit {
+            background: #8a2be2;
+        }
+
+        .retro-kit {
+            background: #ff6b35;
+        }
+
+        .special-kit {
+            background: #00a8ff;
+        }
+
+        /* Video Fit Section */
+        .video-fit-section {
+            padding: 60px 0;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        }
+
+        .videos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .video-item {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .video-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        .fit-video {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 10px;
+            background: #000;
+        }
+
+        .video-caption {
+            text-align: center;
+            margin-top: 15px;
+            font-weight: 600;
+            color: #2c3e50;
+            font-size: 1rem;
+        }
+
+        /* Load More Button */
+        .load-more-container {
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        .load-more-button {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 5px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .load-more-button:hover {
+            background: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        /* ABOUT PAGE STYLES */
+        .about-hero {
+            background: linear-gradient(rgba(26,26,46,0.9), rgba(22,33,62,0.9));
+            padding: 8rem 0 5rem;
+            text-align: center;
+            color: white;
+            margin-top: 70px;
+        }
+
+        .about-content {
+            padding: 5rem 0;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text h2 {
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .about-text h3 {
+            color: var(--secondary);
+            margin: 2rem 0 1rem;
+        }
+
+        .about-image img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .brands-section {
+            margin-top: 4rem;
+            text-align: center;
+        }
+
+        .brands-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .brand-item {
+            background: var(--background-alt);
+            padding: 1.5rem;
+            border-radius: 5px;
+            font-weight: 600;
+            color: var(--primary);
+            transition: transform 0.3s ease;
+        }
+
+        .brand-item:hover {
+            transform: translateY(-3px);
+            background: var(--primary);
+            color: white;
+        }
+
+        /* CONTACT PAGE STYLES */
+        .contact-hero {
+            background: var(--background-alt);
+            padding: 5rem 0 3rem;
+            margin-top: 70px;
+        }
+
+        .contact-content {
+            padding: 5rem 0;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid var(--border);
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+
+        .submit-button {
+            background: var(--accent);
+            color: white;
+            width: 100%;
+            padding: 12px;
+            font-size: 1rem;
+        }
+
+        .submit-button:hover {
+            background: #d32f2f;
+            transform: translateY(-2px);
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .contact-item i {
+            font-size: 1.5rem;
+            color: var(--accent);
+            margin-right: 1rem;
+            width: 30px;
+        }
+
+        /* Social Media Section */
+        .social-media-section {
+            margin-top: 2rem;
+            padding: 2rem;
+            background: var(--background-alt);
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .social-media-section h3 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .social-intro {
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+        }
+
+        .social-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .social-button {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 1rem 1.5rem;
+            border-radius: 10px;
+            text-decoration: none;
+            color: white;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            min-width: 100px;
+        }
+
+        .social-button i {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .social-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .social-button:hover i {
+            transform: scale(1.2);
+        }
+
+        /* Brand Colors */
+        .whatsapp {
+            background: #25D366;
+        }
+
+        .whatsapp:hover {
+            background: #128C7E;
+        }
+
+        .facebook {
+            background: #1877F2;
+        }
+
+        .facebook:hover {
+            background: #0D5FD7;
+        }
+
+        .instagram {
+            background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D);
+        }
+
+        .instagram:hover {
+            background: linear-gradient(45deg, #2D46B9, #405DE6, #833AB4, #C13584, #E1306C);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--primary);
+            color: white;
+            padding: 3rem 0 1rem;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-section h3,
+        .footer-section h4 {
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .footer-section a {
+            color: #ccc;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.5rem;
+            transition: color 0.3s ease;
+            cursor: pointer;
+        }
+
+        .footer-section a:hover {
+            color: var(--accent);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 1rem;
+            border-top: 1px solid #333;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-menu {
+                position: fixed;
+                left: -100%;
+                top: 70px;
+                flex-direction: column;
+                background: var(--primary);
+                width: 100%;
+                text-align: center;
+                transition: 0.3s;
+                box-shadow: 0 10px 27px rgba(0,0,0,0.05);
+                padding: 2rem 0;
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .nav-toggle {
+                display: flex;
+            }
+
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .about-grid,
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .page-title {
+                font-size: 2.5rem;
+            }
+
+            .shop-filters {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .filter-group {
+                width: 100%;
+                max-width: 250px;
+            }
+            
+            .jerseys-grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            }
+            
+            .social-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .social-button {
+                width: 200px;
+                flex-direction: row;
+                justify-content: center;
+                gap: 0.5rem;
+            }
+            
+            .social-button i {
+                margin-bottom: 0;
+                font-size: 1.3rem;
+            }
+            
+            .videos-grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 20px;
+            }
+            
+            .fit-video {
+                height: 200px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+
+            .featured-grid,
+            .jerseys-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .container {
+                padding: 0 15px;
+            }
+            
+            .social-media-section {
+                padding: 1.5rem;
+            }
+            
+            .social-button {
+                width: 100%;
+                max-width: 200px;
+            }
+            
+            .videos-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .video-fit-section {
+                padding: 40px 0;
+            }
+        }
+/* ABOUT PAGE STYLES */
+.about-hero {
+    background: linear-gradient(rgba(26,26,46,0.9), rgba(22,33,62,0.9));
+    padding: 8rem 0 5rem;
+    text-align: center;
+    color: white;
+    margin-top: 70px;
+}
+
+.about-content {
+    padding: 5rem 0;
+}
+
+/* Logo Section Styles */
+.logo-section {
+    text-align: center;
+    margin-bottom: 3rem;
+    padding: 2rem 0;
+}
+
+.about-logo {
+    max-width: 200px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.about-logo:hover {
+    transform: scale(1.05);
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.about-text h2 {
+    color: var(--primary);
+    margin-bottom: 1.5rem;
+}
+
+.about-text h3 {
+    color: var(--secondary);
+    margin: 2rem 0 1rem;
+}
+
+.about-image img {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.brands-section {
+    margin-top: 4rem;
+    text-align: center;
+}
+
+.brands-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.brand-item {
+    background: var(--background-alt);
+    padding: 1.5rem;
+    border-radius: 5px;
+    font-weight: 600;
+    color: var(--primary);
+    transition: transform 0.3s ease;
+}
+
+.brand-item:hover {
+    transform: translateY(-3px);
+    background: var(--primary);
+    color: white;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .about-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .about-logo {
+        max-width: 150px;
+    }
+    
+    .logo-section {
+        margin-bottom: 2rem;
+    }
+}
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="#home" onclick="showPage('home')">Elite<span>Kits</span></a>
+            </div>
+            <div class="nav-menu" id="navMenu">
+                <a href="#home" class="nav-link active" onclick="showPage('home')">Home</a>
+                <a href="#shop" class="nav-link" onclick="showPage('shop')">Shop</a>
+                <a href="#about" class="nav-link" onclick="showPage('about')">About</a>
+                <a href="#contact" class="nav-link" onclick="showPage('contact')">Contact</a>
+            </div>
+            <div class="nav-toggle" id="navToggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HOME PAGE -->
+    <section id="home-page" class="page-content active">
+        <!-- Hero Section -->
+        <section class="hero" aria-label="Featured football kits">
+            <video class="hero-video" autoplay muted loop playsinline preload="auto">
+                <source src="static/videos/vid 1.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+
+            <div class="hero-content">
+                <h1 class="hero-title">Represent Your Team in Style</h1>
+                <p class="hero-subtitle">
+                    Premium football jerseys inspired by the world's biggest clubs
+                </p>
+                <a href="#shop" onclick="showPage('shop')" class="cta-button">Shop Now</a>
+            </div>
+        </section>
+
+        <!-- Featured Kits -->
+        <section class="featured">
+            <div class="container">
+                <h2 class="section-title">Featured Kits</h2>
+
+                <div class="featured-grid">
+                    <!-- Roma -->
+                    <article class="jersey-card">
+                        <div class="jersey-image">
+                            <img 
+                                src="static/images/roma.jpg" 
+                                alt="AS Roma 2025 third football kit"
+                                loading="lazy"
+                            >
+                        </div>
+                        <div class="jersey-info">
+                            <h3>AS Roma</h3>
+                            <p>2025 Third Kit – Italian Elegance</p>
+                        </div>
+                    </article>
+
+                    <!-- Real Madrid -->
+                    <article class="jersey-card">
+                        <div class="jersey-image">
+                            <img 
+                                src="static/images/real blue kit.jpg" 
+                                alt="Real Madrid 2025 blue football kit"
+                                loading="lazy"
+                            >
+                        </div>
+                        <div class="jersey-info">
+                            <h3>Real Madrid</h3>
+                            <p>2025 Third Kit – Royal Blue</p>
+                        </div>
+                    </article>
+
+                    <!-- Arsenal -->
+                    <article class="jersey-card">
+                        <div class="jersey-image">
+                            <img 
+                                src="static/images/rice.jpg" 
+                                alt="Arsenal 2025 third football kit"
+                                loading="lazy"
+                            >
+                        </div>
+                        <div class="jersey-info">
+                            <h3>Arsenal</h3>
+                            <p>2025 Third Kit – The Gunners</p>
+                        </div>
+                    </article>
+
+                    <!-- Barcelona -->
+                    <article class="jersey-card">
+                        <div class="jersey-image">
+                            <img 
+                                src="static\images\barcelona  special kit.jpg" 
+                                alt="Barcelona 2025 special football kit"
+                                loading="lazy"
+                            >
+                        </div>
+                        <div class="jersey-info">
+                            <h3>Barcelona</h3>
+                            <p>2025 Special Kit – VOLEM LA PILOTA</p>
+                        </div>
+                    </article>
+
+                    <!-- Chelsea Special Kit -->
+                    <article class="jersey-card">
+                        <div class="jersey-image">
+                            <img 
+                                src="static/images/chelsea fit.jpg" 
+                                alt="Chelsea FC 2025 Special Edition football kit"
+                                loading="lazy"
+                            >
+                        </div>
+                        <div class="jersey-info">
+                            <h3>Chelsea FC</h3>
+                            <p>2025 Special Edition – The Blues</p>
+                        </div>
+                    </article>
+                    
+                    <!-- Manchester City Black Kit -->
+                    <article class="jersey-card">
+                        <div class="jersey-image">
+                            <img 
+                                src="static/images/ruben.jpg" 
+                                alt="Manchester City 2025 Black Special Edition football kit"
+                                loading="lazy"
+                            >
+                        </div>
+                        <div class="jersey-info">
+                            <h3>Manchester City</h3>
+                            <p>2025 Black Edition – Cityzens</p>
+                        </div>
+                    </article>
+                </div>
+                <div class="explore-more">
+                    <a href="#shop" onclick="showPage('shop')" class="secondary-button">Explore More</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="features">
+            <div class="container">
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <i class="fas fa-shield-alt"></i>
+                        <h3>Premium Quality</h3>
+                        <p>High-quality materials designed for performance and comfort</p>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-truck"></i>
+                        <h3>Free Shipping</h3>
+                        <p>Free shipping on orders of 2 kits or more</p>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-undo"></i>
+                        <h3>Easy Returns</h3>
+                        <p>30-day return policy for all items</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </section>
+
+    <!-- SHOP PAGE -->
+    <section id="shop-page" class="page-content">
+        <section class="shop-header">
+            <div class="container">
+                <h1 class="page-title">Premium Football Kits Collection</h1>
+                <p class="page-subtitle">Official-inspired jerseys from elite football clubs worldwide</p>
+                <p class="page-description">
+                    <strong>Note:</strong> Looking for a specific kit? We have many more in stock. If you don't see what you need, click 
+                    <a href="https://wa.me/27725893646?text=Hello, I would like to inquire about a football kit from your collection. Could you please provide additional information?" class="more-info-button" target="_blank">More Information</a> 
+                    and we'll help you find it.
+                </p>
+            </div>
+            
+            <!-- Filter Section -->
+            <div class="shop-filters">
+                <div class="filter-group">
+                    <label for="team-filter">Filter by Team:</label>
+                    <select id="team-filter" class="filter-select">
+                        <option value="all">All Teams</option>
+                        <option value="premier-league">Premier League</option>
+                        <option value="la-liga">La Liga</option>
+                        <option value="bundesliga">Bundesliga</option>
+                        <option value="serie-a">Serie A</option>
+                        <option value="international">International</option>
+                        <option value="african">African Teams</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="kit-type">Kit Type:</label>
+                    <select id="kit-type" class="filter-select">
+                        <option value="all">All Kits</option>
+                        <option value="home">Home Kit</option>
+                        <option value="away">Away Kit</option>
+                        <option value="third">Third Kit</option>
+                        <option value="retro">Retro/Vintage</option>
+                    </select>
+                </div>
+            </div>
+        </section>
+
+        <!-- Video Fit Check Section -->
+        <section class="video-fit-section">
+            <div class="container">
+                <h2 class="section-title">Kit Fit Check Videos</h2>
+                <p class="section-subtitle">See how our jerseys look in motion</p>
+                
+                <div class="videos-grid">
+                    <div class="video-item">
+                        <video controls loop muted playsinline class="fit-video">
+                            <source src="static/videos/ajax.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <p class="video-caption">Ajax Amsterdam Kit Fit</p>
+                    </div>
+                    
+                    <div class="video-item">
+                        <video controls loop muted playsinline class="fit-video">
+                            <source src="static/videos/arsenal.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <p class="video-caption">Arsenal FC Kit Fit</p>
+                    </div>
+                    
+                    <div class="video-item">
+                        <video controls loop muted playsinline class="fit-video">
+                            <source src="static/videos/collection.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <p class="video-caption">Kit Collection Overview</p>
+                    </div>
+                    
+                    <div class="video-item">
+                        <video controls loop muted playsinline class="fit-video">
+                            <source src="static/videos/man city.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <p class="video-caption">Manchester City Kit Fit</p>
+                    </div>
+                   
+
+                    <div class="video-item">
+                        <video controls loop muted playsinline class="fit-video">
+                            <source src="static/videos/Man united.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <p class="video-caption">Manchester United Kit Fit</p>
+                    </div>
+                    
+                    
+                    <div class="video-item">
+                        <video controls loop muted playsinline class="fit-video">
+                            <source src="static/videos/roma.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <p class="video-caption">AS Roma Kit Fit</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="shop-grid">
+            <div class="container">
+                <div class="jerseys-grid">
+                    <!-- Premier League Teams -->
+                    <div class="jersey-item" data-team="premier-league" data-kit="home">
+                    <div class="jersey-img">
+                        <img src="static/images/arsenal home kit.jpg" alt="Arsenal Home Kit">
+                        <div class="kit-badge home-kit">Home</div>
+                    </div>
+                    <div class="jersey-details">
+                        <h3>Arsenal FC</h3>
+                        <p class="jersey-tagline">2025 Home Kit - The Gunners</p>
+                        <p class="jersey-price">R700</p>
+                        <a href="https://wa.me/27725893646?text=Hi! I'm interested in the Arsenal FC Home Kit. Can you provide more info?" class="more-info-button" target="_blank">More Info</a>
+                    </div>
+                </div>
+                
+                <div class="jersey-item" data-team="premier-league" data-kit="away">
+                    <div class="jersey-img">
+                        <img src="static/images/arsenal away kt.jpg" alt="Arsenal Away Kit">
+                        <div class="kit-badge away-kit">Away</div>
+                    </div>
+                    <div class="jersey-details">
+                        <h3>Arsenal FC</h3>
+                        <p class="jersey-tagline">2025 Away Kit - The Gunners</p>
+                        <p class="jersey-price">R700</p>
+                        <a href="https://wa.me/27725893646?text=Hi! I'm interested in the Arsenal FC Away Kit. Can you provide more info?" class="more-info-button" target="_blank">More Info</a>
+                    </div>
+                </div>
+
+                <div class="jersey-item" data-team="premier-league" data-kit="third">
+                    <div class="jersey-img">
+                        <img src="static/images/arsenal 3rd kit.jpg" alt="Arsenal Third Kit">
+                        <div class="kit-badge third-kit">Third</div>
+                    </div>
+                    <div class="jersey-details">
+                        <h3>Arsenal FC</h3>
+                        <p class="jersey-tagline">2025 Third Kit - Cannon Edition</p>
+                        <p class="jersey-price">R750</p>
+                        <a href="https://wa.me/27725893646?text=Hi! I'm interested in the Arsenal FC Third Kit. Can you provide more info?" class="more-info-button" target="_blank">More Info</a>
+                    </div>
+                </div>
+
+                <div class="jersey-item" data-team="premier-league" data-kit="home">
+                    <div class="jersey-img">
+                        <img src="static/images/Chelsea home kit.jpg" alt="Chelsea Home Kit">
+                        <div class="kit-badge home-kit">Home</div>
+                    </div>
+                    <div class="jersey-details">
+                        <h3>Chelsea FC</h3>
+                        <p class="jersey-tagline">2025 Home Kit - The Blues</p>
+                        <p class="jersey-price">R700</p>
+                        <a href="https://wa.me/27725893646?text=Hi! I'm interested in the Chelsea FC Home Kit. Can you provide more info?" class="more-info-button" target="_blank">More Info</a>
+                    </div>
+                </div>
+
+                <div class="jersey-item" data-team="premier-league" data-kit="away">
+                    <div class="jersey-img">
+                        <img src="static/images/chelsea away kit.jpg" alt="Chelsea Away Kit">
+                        <div class="kit-badge away-kit">Away</div>
+                    </div>
+                    <div class="jersey-details">
+                        <h3>Chelsea FC</h3>
+                        <p class="jersey-tagline">2025 Away Kit - London Pride</p>
+                        <p class="jersey-price">R700</p>
+                        <a href="https://wa.me/27725893646?text=Hi! I'm interested in the Chelsea FC Away Kit. Can you provide more info?" class="more-info-button" target="_blank">More Info</a>
+                    </div>
+                </div>
+
+                <div class="jersey-item" data-team="premier-league" data-kit="third">
+                    <div class="jersey-img">
+                        <img src="static/images/chelsea Third kit.jpg" alt="Chelsea Third Kit">
+                        <div class="kit-badge third-kit">Third</div>
+                    </div>
+                    <div class="jersey-details">
+                        <h3>Chelsea FC</h3>
+                        <p class="jersey-tagline">2025 Third Kit - Heritage Edition</p>
+                        <p class="jersey-price">R750</p>
+                        <a href="https://wa.me/27725893646?text=Hi! I'm interested in the Chelsea FC Third Kit. Can you provide more info?" class="more-info-button" target="_blank">More Info</a>
+                    </div>
+                </div>
+
+                <div class="jersey-item" data-team="premier-league" data-kit="home">
+                    <div class="jersey-img">
+                        <img src="static/images/liverpool home kit.jpg" alt="Liverpool Home Kit">
+                        <div class="kit-badge home-kit">Home</div>
+                    </div>
+                    <div class="jersey-details">
+                        <h3>Liverpool FC</h3>
+                        <p class="jersey-tagline">2025 Home Kit - You'll Never Walk Alone</p>
+                        <p class="jersey-price">R700</p>
+                        <a href="https://wa.me/27725893646?text=Hi! I'm interested in the Liverpool FC Home Kit. Can you provide more info?" class="more-info-button" target="_blank">More Info</a>
+                    </div>
+                </div>
+
+                <div class="jersey-item" data-team="premier-league" data-kit="away">
+                    <div class="jersey-img">
+                        <img src="static/images/liverpool away kit.jpg" alt="Liverpool Away Kit">
+                        <div class="kit-badge away-kit">Away</div>
+                    </div>
+                    <div class="jersey-details">
+                        <h3>Liverpool FC</h3>
+                        <p class="jersey-tagline">2025 Away Kit - Anfield Spirit</p>
+                        <p class="jersey-price">R700</p>
+                        <a href="https://wa.me/27725893646?text=Hi! I'm interested in the Liverpool FC Away Kit. Can you provide more info?" class="more-info-button" target="_blank">More Info</a>
+                    </div>
+                </div>
+
+                <div class="jersey-item" data-team="premier-league" data-kit="third">
+                    <div class="jersey-img">
+                        <img src="static/images/liverpool Third kit.jpg" alt="Liverpool Third Kit">
+                        <div class="kit-badge third-kit">Third</div>
+                    </div>
+                    <div class="jersey-details">
+                        <h3>Liverpool FC</h3>
+                        <p class="jersey-tagline">2025 Third Kit - Shankly Legacy</p>
+                        <p class="jersey-price">R700</p>
+                        <a href="https://wa.me/27725893646?text=Hi! I'm interested in the Liverpool FC Third Kit. Can you provide more info?" class="more-info-button" target="_blank">More Info</a>
+                    </div>
+                </div>
+
+                <div class="jersey-item" data-team="premier-league" data-kit="home">
+                    <div class="jersey-img">
+                        <img src="static/images/man city home kit.jpg" alt="Man City Home Kit">
+                        <div class="kit-badge home-kit">Home</div>
+                    </div>
+                    <div class="jersey-details">
+                        <h3>Manchester City</h3>
+                        <p class="jersey-tagline">2025 Home Kit - Sky Blue</p>
+                        <p class="jersey-price">R700</p>
+                        <a href="https://wa.me/27725893646?text=Hi! I'm interested in the Manchester City Home Kit. Can you provide more info?" class="more-info-button" target="_blank">More Info</a>
+                    </div>
+                </div>
+
+                <div class="jersey-item" data-team="premier-league" data-kit="away">
+                    <div class="jersey-img">
+                        <img src="static/images/man city away kit.jpg" alt="Man City Away Kit">
+                        <div class="kit-badge away-kit">Away</div>
+                    </div>
+                    <div class="jersey-details">
+                        <h3>Manchester City</h3>
+                        <p class="jersey-tagline">2025 Away Kit - Etihad Spirit</p>
+                        <p class="jersey-price">R750</p>
+                        <a href="https://wa.me/27725893646?text=Hi! I'm interested in the Manchester City Away Kit. Can you provide more info?" class="more-info-button" target="_blank">More Info</a>
+                    </div>
+                </div>
+
+                <div class="jersey-item" data-team="premier-league" data-kit="third">
+                    <div class="jersey-img">
+                        <img src="static/images/man city third kit.jpg" alt="Man City Third Kit">
+                        <div class="kit-badge third-kit">Third</div>
+                    </div>
+                    <div class="jersey-details">
+                        <h3>Manchester City</h3>
+                        <p class="jersey-tagline">2025 Third Kit - Manchester Pride</p>
+                        <p class="jersey-price">R700</p>
+                        <a href="https://wa.me/27725893646?text=Hi! I'm interested in the Manchester City Third Kit. Can you provide more info?" class="more-info-button" target="_blank">More Info</a>
+                    </div>
+                </div>
+
+                <div class="jersey-item" data-team="premier-league" data-kit="home">
+                    <div class="jersey-img">
+                        <img src="static/images/man united home kit.jpg" alt="Man United Home Kit">
+                        <div class="kit-badge home-kit">Home</div>
+                    </div>
+                    <div class="jersey-details">
+                        <h3>Manchester United</h3>
+                        <p class="jersey-tagline">2025 Home Kit - Red Devils</p>
+                        <p class="jersey-price">R700</p>
+                        <a href="https://wa.me/27725893646?text=Hi! I'm interested in the Manchester United Home Kit. Can you provide more info?" class="more-info-button" target="_blank">More Info</a>
+                    </div>
+                </div>
+
+                <div class="jersey-item" data-team="premier-league" data-kit="away">
+                    <div class="jersey-img">
+                        <img src="static/images/man united away kit.jpg" alt="Man United Away Kit">
+                        <div class="kit-badge away-kit">Away</div>
+                    </div>
+                    <div class="jersey-details">
+                        <h3>Manchester United</h3>
+                        <p class="jersey-tagline">2025 Away Kit - Theatre of Dreams</p>
+                        <p class="jersey-price">R700</p>
+                        <a href="https://wa.me/27725893646?text=Hi! I'm interested in the Manchester United Away Kit. Can you provide more info?" class="more-info-button" target="_blank">More Info</a>
+                    </div>
+                </div>
+
+                <div class="jersey-item" data-team="premier-league" data-kit="third">
+                    <div class="jersey-img">
+                        <img src="static/images/man united third kit.jpg" alt="Man United Third Kit">
+                        <div class="kit-badge third-kit">Third</div>
+                    </div>
+                    <div class="jersey-details">
+                        <h3>Manchester United</h3>
+                        <p class="jersey-tagline">2025 Third Kit - Red Devils</p>
+                        <p class="jersey-price">R750</p>
+                        <a href="https://wa.me/27725893646?text=Hi! I'm interested in the Manchester United Third Kit. Can you provide more info?" class="more-info-button" target="_blank">More Info</a>
+                    </div>
+                </div>
+                <!-- La Liga Teams -->
+                <div class="jersey-item" data-team="la-liga" data-kit="home">
+                    <div class="jersey-img">
+                        <img src="static/images/barcelona home kit.jpg" alt="Barcelona Home Kit">
+                        <div class="kit-badge home-kit">Home</div>
+                    </div>
+                    <div class="jersey-details">
+                        <h3>FC Barcelona</h3>
+                        <p class="jersey-tagline">2025 Home Kit - Blaugrana</p>
+                        <p class="jersey-price">R700</p>
+                        <a href="https://wa.me/27725893646?text=Hi! I'm interested in the FC Barcelona Home Kit. Can you provide more info?" class="more-info-button" target="_blank">More Info</a>
+                    </div>
+                </div>
+
+                <div class="jersey-item" data-team="la-liga" data-kit="away">
+                    <div class="jersey-img">
+                        <img src="static/images/barcelona away kit1.jpg" alt="Barcelona Away Kit">
+                        <div class="kit-badge away-kit">Away</div>
+                    </div>
+                    <div class="jersey-details">
+                        <h3>FC Barcelona</h3>
+                        <p class="jersey-tagline">2025 Away Kit - Catalan Spirit</p>
+                        <p class="jersey-price">R700</p>
+                        <a href="https://wa.me/27725893646?text=Hi! I'm interested in the FC Barcelona Away Kit. Can you provide more info?" class="more-info-button" target="_blank">More Info</a>
+                    </div>
+                </div>
+
+                <div class="jersey-item" data-team="la-liga" data-kit="third">
+                    <div class="jersey-img">
+                        <img src="static/images/barcelona third kit.jpg" alt="Barcelona Third Kit">
+                        <div class="kit-badge third-kit">Third</div>
+                    </div>
+                    <div class="jersey-details">
+                        <h3>FC Barcelona</h3>
+                        <p class="jersey-tagline">2025 Third Kit - Modernista</p>
+                        <p class="jersey-price">R700</p>
+                        <a href="https://wa.me/27725893646?text=Hi! I'm interested in the FC Barcelona Third Kit. Can you provide more info?" class="more-info-button" target="_blank">More Info</a>
+                    </div>
+                </div>
+
+                <div class="jersey-item" data-team="la-liga" data-kit="home">
+                    <div class="jersey-img">
+                        <img src="static/images/real_madrid.jpg" alt="Real Madrid Home Kit">
+                        <div class="kit-badge home-kit">Home</div>
+                    </div>
+                    <div class="jersey-details">
+                        <h3>Real Madrid</h3>
+                        <p class="jersey-tagline">2025 Home Kit - Los Blancos</p>
+                        <p class="jersey-price">R700</p>
+                        <a href="https://wa.me/27725893646?text=Hi! I'm interested in the Real Madrid Home Kit. Can you provide more info?" class="more-info-button" target="_blank">More Info</a>
+                    </div>
+                </div>
+
+                <div class="jersey-item" data-team="la-liga" data-kit="away">
+                    <div class="jersey-img">
+                        <img src="static/images/real madrid away kit.jpg" alt="Real Madrid Away Kit">
+                        <div class="kit-badge away-kit">Away</div>
+                    </div>
+                    <div class="jersey-details">
+                        <h3>Real Madrid</h3>
+                        <p class="jersey-tagline">2025 Away Kit - Galacticos</p>
+                        <p class="jersey-price">R700</p>
+                        <a href="https://wa.me/27725893646?text=Hi! I'm interested in the Real Madrid Away Kit. Can you provide more info?" class="more-info-button" target="_blank">More Info</a>
+                    </div>
+                </div>
+
+                <div class="jersey-item" data-team="la-liga" data-kit="third">
+                    <div class="jersey-img">
+                        <img src="static/images/real madrid 3rd kit.jpg" alt="Real Madrid Third Kit">
+                        <div class="kit-badge third-kit">Third</div>
+                    </div>
+                    <div class="jersey-details">
+                        <h3>Real Madrid</h3>
+                        <p class="jersey-tagline">2025 Third Kit - Santiago Blue</p>
+                        <p class="jersey-price">R700</p>
+                        <a href="https://wa.me/27725893646?text=Hi! I'm interested in the Real Madrid Third Kit. Can you provide more info?" class="more-info-button" target="_blank">More Info</a>
+                    </div>
+                </div>
+
+                <!-- Bundesliga Teams -->
+                <div class="jersey-item" data-team="bundesliga" data-kit="home">
+                    <div class="jersey-img">
+                        <img src="static/images/bayern home kit.jpg" alt="Bayern Munich Home Kit">
+                        <div class="kit-badge home-kit">Home</div>
+                    </div>
+                    <div class="jersey-details">
+                        <h3>Bayern Munich</h3>
+                        <p class="jersey-tagline">2025 Home Kit - Bavarian Pride</p>
+                        <p class="jersey-price">R700</p>
+                        <a href="https://wa.me/27725893646?text=Hi! I'm interested in the Bayern Munich Home Kit. Can you provide more info?" class="more-info-button" target="_blank">More Info</a>
+                    </div>
+                </div>
+                
+                <div class="jersey-item" data-team="bundesliga" data-kit="away">
+                    <div class="jersey-img">
+                        <img src="static/images/bayern away kit.jpg" alt="Bayern Munich Away Kit">
+                        <div class="kit-badge away-kit">Away</div>
+                    </div>
+                    <div class="jersey-details">
+                        <h3>Bayern Munich</h3>
+                        <p class="jersey-tagline">2025 Away Kit - Bavarian Pride</p>
+                        <p class="jersey-price">R700</p>
+                        <a href="https://wa.me/27725893646?text=Hi! I'm interested in the Bayern Munich Away Kit. Can you provide more info?" class="more-info-button" target="_blank">More Info</a>
+                    </div>
+                </div>
+
+                <div class="jersey-item" data-team="bundesliga" data-kit="third">
+                    <div class="jersey-img">
+                        <img src="static/images/bayern Third kit.jpg" alt="Bayern Munich Third Kit">
+                        <div class="kit-badge third-kit">Third</div>
+                    </div>
+                    <div class="jersey-details">
+                        <h3>Bayern Munich</h3>
+                        <p class="jersey-tagline">2025 Third Kit - Munich Nights</p>
+                        <p class="jersey-price">R700</p>
+                        <a href="https://wa.me/27725893646?text=Hi! I'm interested in the Bayern Munich Third Kit. Can you provide more info?" class="more-info-button" target="_blank">More Info</a>
+                    </div>
+                </div>
+
+                <!-- Serie A Teams -->
+                <div class="jersey-item" data-team="serie-a" data-kit="special">
+                    <div class="jersey-img">
+                        <img src="static/images/acmilan.jpg" alt="AC Milan Kit">
+                        <div class="kit-badge special-kit">Special</div>
+                    </div>
+                    <div class="jersey-details">
+                        <h3>AC Milan</h3>
+                        <p class="jersey-tagline">2025 Special Kit - Pleasure Collared</p>
+                        <p class="jersey-price">R750</p>
+                        <a href="https://wa.me/27725893646?text=Hi! I'm interested in the AC Milan Special Kit. Can you provide more info?" class="more-info-button" target="_blank">More Info</a>
+                    </div>
+                </div>
+                
+                <div class="jersey-item" data-team="serie-a" data-kit="special">
+                    <div class="jersey-img">
+                        <img src="static/images/Ac MIlan black.jpg" alt="AC Milan Kit">
+                        <div class="kit-badge special-kit">Special</div>
+                    </div>
+                    <div class="jersey-details">
+                        <h3>AC Milan</h3>
+                        <p class="jersey-tagline">2025 Special Kit - Pleasure Collared</p>
+                        <p class="jersey-price">R750</p>
+                        <a href="https://wa.me/27725893646?text=Hi! I'm interested in the AC Milan Special Kit. Can you provide more info?" class="more-info-button" target="_blank">More Info</a>
+                    </div>
+                </div>
+
+                <div class="jersey-item" data-team="serie-a" data-kit="special">
+                    <div class="jersey-img">
+                        <img src="static/images/juventus kit.jpg" alt="Juventus Special Kit">
+                        <div class="kit-badge special-kit">Special</div>
+                    </div>
+                    <div class="jersey-details">
+                        <h3>Juventus</h3>
+                        <p class="jersey-tagline">2025 Special Kit - Heritage Edition</p>
+                        <p class="jersey-price">R750</p>
+                        <a href="https://wa.me/27725893646?text=Hi! I'm interested in the Juventus Special Kit. Can you provide more info?" class="more-info-button" target="_blank">More Info</a>
+                    </div>
+                </div>
+
+                <div class="jersey-item" data-team="serie-a" data-kit="home">
+                    <div class="jersey-img">
+                        <img src="static/images/napoli.jpg" alt="Napoli Kit">
+                        <div class="kit-badge home-kit">Home</div>
+                    </div>
+                    <div class="jersey-details">
+                        <h3>SSC Napoli</h3>
+                        <p class="jersey-tagline">2025 Home Kit - Partenopei</p>
+                        <p class="jersey-price">R700</p>
+                        <a href="https://wa.me/27725893646?text=Hi! I'm interested in the SSC Napoli Home Kit. Can you provide more info?" class="more-info-button" target="_blank">More Info</a>
+                    </div>
+                </div>
+
+                <div class="jersey-item" data-team="serie-a" data-kit="home">
+                    <div class="jersey-img">
+                        <img src="static/images/inter milan.jpg" alt="Inter Milan Kit">
+                        <div class="kit-badge home-kit">Home</div>
+                    </div>
+                    <div class="jersey-details">
+                        <h3>Inter Milan</h3>
+                        <p class="jersey-tagline">2025 Home Kit - Giallorossi</p>
+                        <p class="jersey-price">R700</p>
+                        <a href="https://wa.me/27725893646?text=Hi! I'm interested in the Inter Milan Home Kit. Can you provide more info?" class="more-info-button" target="_blank">More Info</a>
+                    </div>
+                </div>
+
+                <div class="jersey-item" data-team="serie-a" data-kit="third">
+                    <div class="jersey-img">
+                        <img src="static/images/roma 3rd kit.jpg" alt="Roma Third Kit">
+                        <div class="kit-badge third-kit">Third</div>
+                    </div>
+                    <div class="jersey-details">
+                        <h3>AS Roma</h3>
+                        <p class="jersey-tagline">2025 Third Kit - Roman Empire</p>
+                        <p class="jersey-price">R750</p>
+                        <a href="https://wa.me/27725893646?text=Hi! I'm interested in the AS Roma Third Kit. Can you provide more info?" class="more-info-button" target="_blank">More Info</a>
+                    </div>
+                </div>
+
+                <!-- International Teams -->
+                <div class="jersey-item" data-team="international" data-kit="home">
+                    <div class="jersey-img">
+                        <img src="static/images/france.jpg" alt="France Kit">
+                        <div class="kit-badge home-kit">Home</div>
+                    </div>
+                    <div class="jersey-details">
+                        <h3>France National Team</h3>
+                        <p class="jersey-tagline">2025 Home Kit - Les Bleus</p>
+                        <p class="jersey-price">R750</p>
+                        <a href="https://wa.me/27725893646?text=Hi! I'm interested in the France National Team Kit. Can you provide more info?" class="more-info-button" target="_blank">More Info</a>
+                    </div>
+                </div>
+
+                <div class="jersey-item" data-team="international" data-kit="home">
+                    <div class="jersey-img">
+                        <img src="static/images/brazil.jpg" alt="Brazil Kit">
+                        <div class="kit-badge home-kit">Home</div>
+                    </div>
+                    <div class="jersey-details">
+                        <h3>Brazil National Team</h3>
+                        <p class="jersey-tagline">2025 Home Kit - Seleção</p>
+                        <p class="jersey-price">R750</p>
+                        <a href="https://wa.me/27725893646?text=Hi! I'm interested in the Brazil National Team Kit. Can you provide more info?" class="more-info-button" target="_blank">More Info</a>
+                    </div>
+                </div>
+
+                <div class="jersey-item" data-team="international" data-kit="home">
+                    <div class="jersey-img">
+                        <img src="static/images/argentina.jpg" alt="Argentina 2026 Home Kit">
+                        <div class="kit-badge home-kit">Home</div>
+                    </div>
+                    <div class="jersey-details">
+                        <h3>Argentina National Team</h3>
+                        <p class="jersey-tagline">2026 World Cup Home Kit - La Albiceleste</p>
+                        <p class="jersey-price">R750</p>
+                        <a href="https://wa.me/27725893646?text=Hi! I'm interested in the Argentina National Team 2026 Home Kit. Can you provide more info?" class="more-info-button" target="_blank">More Info</a>
+                    </div>
+                </div>
+
+                <div class="jersey-item" data-team="international" data-kit="home">
+                    <div class="jersey-img">
+                        <img src="static/images/portugal.jpg" alt="Portugal 2026 Home Kit">
+                        <div class="kit-badge home-kit">Home</div>
+                    </div>
+                    <div class="jersey-details">
+                        <h3>Portugal National Team</h3>
+                        <p class="jersey-tagline">2026 Home Kit - A Seleção</p>
+                        <p class="jersey-price">R750</p>
+                        <a href="https://wa.me/27725893646?text=Hi! I'm interested in the Portugal National Team 2026 Home Kit. Can you provide more info?" class="more-info-button" target="_blank">More Info</a>
+                    </div>
+                </div>
+
+                <div class="jersey-item" data-team="international" data-kit="home">
+                    <div class="jersey-img">
+                        <img src="static/images/spain.jpg" alt="Spain 2026 Home Kit">
+                        <div class="kit-badge home-kit">Home</div>
+                    </div>
+                    <div class="jersey-details">
+                        <h3>Spain National Team</h3>
+                        <p class="jersey-tagline">2026 Home Kit - La Furia Roja</p>
+                        <p class="jersey-price">R750</p>
+                        <a href="https://wa.me/27725893646?text=Hi! I'm interested in the Spain National Team 2026 Home Kit. Can you provide more info?" class="more-info-button" target="_blank">More Info</a>
+                    </div>
+                </div>
+
+                <div class="jersey-item" data-team="international" data-kit="home">
+                    <div class="jersey-img">
+                        <img src="static/images/england.jpg" alt="England 2025 Home Kit">
+                        <div class="kit-badge home-kit">Home</div>
+                    </div>
+                    <div class="jersey-details">
+                        <h3>England National Team</h3>
+                        <p class="jersey-tagline">2025 Home Kit - The Three Lions</p>
+                        <p class="jersey-price">R750</p>
+                        <a href="https://wa.me/27725893646?text=Hi! I'm interested in the England National Team 2025 Home Kit. Can you provide more info?" class="more-info-button" target="_blank">More Info</a>
+                    </div>
+                </div>
+
+                <!-- African Teams -->
+                <div class="jersey-item" data-team="african" data-kit="home">
+                    <div class="jersey-img">
+                        <img src="static/images/Kaizer Chiefs home kit.jpg" alt="Kaizer Chiefs Home Kit">
+                        <div class="kit-badge home-kit">Home</div>
+                    </div>
+                    <div class="jersey-details">
+                        <h3>Kaizer Chiefs</h3>
+                        <p class="jersey-tagline">2025 Home Kit - Amakhosi</p>
+                        <p class="jersey-price">R700</p>
+                        <a href="https://wa.me/27725893646?text=Hi! I'm interested in the Kaizer Chiefs Home Kit. Can you provide more info?" class="more-info-button" target="_blank">More Info</a>
+                    </div>
+                </div>
+
+                <div class="jersey-item" data-team="african" data-kit="away">
+                    <div class="jersey-img">
+                        <img src="static/images/Kaizer Chiefs Away Kit.jpg" alt="Kaizer Chiefs Away Kit">
+                        <div class="kit-badge away-kit">Away</div>
+                    </div>
+                    <div class="jersey-details">
+                        <h3>Kaizer Chiefs</h3>
+                        <p class="jersey-tagline">2025 Away Kit - Gold & Black</p>
+                        <p class="jersey-price">R700</p>
+                        <a href="https://wa.me/27725893646?text=Hi! I'm interested in the Kaizer Chiefs Away Kit. Can you provide more info?" class="more-info-button" target="_blank">More Info</a>
+                    </div>
+                </div>
+                
+                <div class="jersey-item" data-team="african" data-kit="home">
+                    <div class="jersey-img">
+                        <img src="static/images/sundowns.jpg" alt="Mamelodi Sundowns 2025 Home Kit">
+                        <div class="kit-badge home-kit">Home</div>
+                    </div>
+                    <div class="jersey-details">
+                        <h3>Mamelodi Sundowns F.C.</h3>
+                        <p class="jersey-tagline">2025 Home Kit - The Brazilians</p>
+                        <p class="jersey-price">R700</p>
+                        <a href="https://wa.me/27725893646?text=Hi! I'm interested in the Mamelodi Sundowns 2025 Home Kit. Can you provide more info?" class="more-info-button" target="_blank">More Info</a>
+                    </div>
+                </div>
+
+                <div class="jersey-item" data-team="african" data-kit="home">
+                    <div class="jersey-img">
+                        <img src="static/images/Mamelodi Sundowns.jpg" alt="Mamelodi Sundowns Kit">
+                        <div class="kit-badge home-kit">Home</div>
+                    </div>
+                    <div class="jersey-details">
+                        <h3>Mamelodi Sundowns</h3>
+                        <p class="jersey-tagline">2025 Home Kit - The Brazilians</p>
+                        <p class="jersey-price">R700</p>
+                        <a href="https://wa.me/27725893646?text=Hi! I'm interested in the Mamelodi Sundowns Home Kit. Can you provide more info?" class="more-info-button" target="_blank">More Info</a>
+                    </div>
+                </div>
+
+                <div class="jersey-item" data-team="african" data-kit="home">
+                    <div class="jersey-img">
+                        <img src="static/images/orlando piretes.jpg" alt="Orlando Pirates Home Kit">
+                        <div class="kit-badge home-kit">Home</div>
+                    </div>
+                    <div class="jersey-details">
+                        <h3>Orlando Pirates</h3>
+                        <p class="jersey-tagline">2025 Home Kit - Buccaneers</p>
+                        <p class="jersey-price">R700</p>
+                        <a href="https://wa.me/27725893646?text=Hi! I'm interested in the Orlando Pirates Home Kit. Can you provide more info?" class="more-info-button" target="_blank">More Info</a>
+                    </div>
+                </div>
+
+                <div class="jersey-item" data-team="african" data-kit="away">
+                    <div class="jersey-img">
+                        <img src="static/images/orlando pirest away kit.jpg" alt="Orlando Pirates Away Kit">
+                        <div class="kit-badge away-kit">Away</div>
+                    </div>
+                    <div class="jersey-details">
+                        <h3>Orlando Pirates</h3>
+                        <p class="jersey-tagline">2025 Away Kit - Sea Robbers</p>
+                        <p class="jersey-price">R700</p>
+                        <a href="https://wa.me/27725893646?text=Hi! I'm interested in the Orlando Pirates Away Kit. Can you provide more info?" class="more-info-button" target="_blank">More Info</a>
+                    </div>
+                </div>
+
+                <div class="jersey-item" data-team="african" data-kit="retro">
+                    <div class="jersey-img">
+                        <img src="static/images/bafana bafana retro.jpg" alt="Bafana Bafana Retro Kit">
+                        <div class="kit-badge retro-kit">Retro</div>
+                    </div>
+                    <div class="jersey-details">
+                        <h3>South Africa</h3>
+                        <p class="jersey-tagline">1996 Retro Kit - AFCON Champions</p>
+                        <p class="jersey-price">R700</p>
+                        <a href="https://wa.me/27725893646?text=Hi! I'm interested in the South Africa Retro Kit. Can you provide more info?" class="more-info-button" target="_blank">More Info</a>
+                    </div>
+                </div>
+
+                <!-- Other Teams -->
+                <div class="jersey-item" data-team="other" data-kit="home">
+                    <div class="jersey-img">
+                        <img src="static/images/Ajax Amsterdam home kit.jpg" alt="Ajax Home Kit">
+                        <div class="kit-badge home-kit">Home</div>
+                    </div>
+                    <div class="jersey-details">
+                        <h3>Ajax Amsterdam</h3>
+                        <p class="jersey-tagline">2025 Home Kit - Godenzonen</p>
+                        <p class="jersey-price">R700</p>
+                        <a href="https://wa.me/27725893646?text=Hi! I'm interested in the Ajax Amsterdam Home Kit. Can you provide more info?" class="more-info-button" target="_blank">More Info</a>
+                    </div>
+                </div>
+
+                <div class="jersey-item" data-team="other" data-kit="third">
+                    <div class="jersey-img">
+                        <img src="static/images/Ajax Amsterdam Third kit.jpg" alt="Ajax Third Kit">
+                        <div class="kit-badge third-kit">Third</div>
+                    </div>
+                    <div class="jersey-details">
+                        <h3>Ajax Amsterdam</h3>
+                        <p class="jersey-tagline">2025 Third Kit - Amsterdam Pride</p>
+                        <p class="jersey-price">R700</p>
+                        <a href="https://wa.me/27725893646?text=Hi! I'm interested in the Ajax Amsterdam Third Kit. Can you provide more info?" class="more-info-button" target="_blank">More Info</a>
+                    </div>
+                </div>
+
+                <div class="jersey-item" data-team="other" data-kit="away">
+                    <div class="jersey-img">
+                        <img src="static/images/olympique Lyon Away.jpg" alt="Lyon Away Kit">
+                        <div class="kit-badge away-kit">Away</div>
+                    </div>
+                    <div class="jersey-details">
+                        <h3>Olympique Lyon</h3>
+                        <p class="jersey-tagline">2025 Away Kit - Les Gones</p>
+                        <p class="jersey-price">R700</p>
+                        <a href="https://wa.me/27725893646?text=Hi! I'm interested in the Olympique Lyon Away Kit. Can you provide more info?" class="more-info-button" target="_blank">More Info</a>
+                    </div>
+                </div>
+                
+                <div class="jersey-item" data-team="other" data-kit="home">
+                    <div class="jersey-img">
+                        <img src="static/images/psg.jpg" alt="Paris Saint-Germain 2025 Home Kit">
+                        <div class="kit-badge home-kit">Home</div>
+                    </div>
+                    <div class="jersey-details">
+                        <h3>Paris Saint-Germain</h3>
+                        <p class="jersey-tagline">2025 Home Kit - Ici c'est Paris</p>
+                        <p class="jersey-price">R700</p>
+                        <a href="https://wa.me/27725893646?text=Hi! I'm interested in the Paris Saint-Germain 2025 Home Kit. Can you provide more info?" class="more-info-button" target="_blank">More Info</a>
+                    </div>
+                </div>
+
+                <div class="jersey-item" data-team="other" data-kit="third">
+                    <div class="jersey-img">
+                        <img src="static/images/Psg3.jpg" alt="PSG Third Kit">
+                        <div class="kit-badge third-kit">Third</div>
+                    </div>
+                    <div class="jersey-details">
+                        <h3>Paris Saint-Germain</h3>
+                        <p class="jersey-tagline">2025 Third Kit - Parisian Nights</p>
+                        <p class="jersey-price">R700</p>
+                        <a href="https://wa.me/27725893646?text=Hi! I'm interested in the PSG Third Kit. Can you provide more info?" class="more-info-button" target="_blank">More Info</a>
+                    </div>
+                </div>
+                
+                <div class="jersey-item" data-team="other" data-kit="home">
+                    <div class="jersey-img">
+                        <img src="static/images/ACM.jpg" alt="Atlético Mineiro 2025 Home Kit">
+                        <div class="kit-badge home-kit">Home</div>
+                    </div>
+                    <div class="jersey-details">
+                        <h3>Atlético Mineiro</h3>
+                        <p class="jersey-tagline">2025 Home Kit - Galo Forte</p>
+                        <p class="jersey-price">R700</p>
+                        <a href="https://wa.me/27725893646?text=Hi! I'm interested in the Atlético Mineiro 2025 Home Kit. Can you provide more info?" class="more-info-button" target="_blank">More Info</a>
+                    </div>
+                </div>
+
+                <!-- Load More Button -->
+                <!-- More Information Section -->
+<div class="load-more-container">
+    <p class="page-description">
+        <strong>Note:</strong> Don't see what you need? We have many more kits available!
+    </p>
+    <a href="https://wa.me/27725893646?text=Hello, I would like to inquire about a football kit from your collection. Could you please provide additional information?" class="more-info-button" target="_blank">Need Help Finding a Kit?</a>
+</div>
+        </section>
+    </section>
+    <!-- ABOUT PAGE -->
+<section id="about-page" class="page-content">
+    <section class="about-hero">
+        <div class="container">
+            <h1 class="page-title">About EliteKits</h1>
+        </div>
+    </section>
+
+    <div class="container">
+        <div class="about-content">
+            <div class="about-grid">
+                <div class="about-text">
+                    <h2>Our Passion for Football</h2>
+                    <p>At EliteKits, we believe that wearing your team's colors is more than just fashion - it's a statement of passion, loyalty, and identity. We promote top quality football kits inspired by the world's greatest teams.</p>
+                    
+                    <h3>Premium Quality Assurance</h3>
+                    <p>Every jersey in our collection is crafted with attention to detail, using high performance fabrics that offer both comfort and durability. Our designs capture the essence of each team while maintaining the highest standards of quality.</p>
+                    
+                    <h3>For the Modern Fan</h3>
+                    <p>Whether you're cheering from the stadium or watching from home, our jerseys are designed for the contemporary football enthusiast who values style, comfort, and authenticity.</p>
+                </div>
+                <div class="about-image">
+                    <img src="static/images/logo.jpeg" alt="EliteKits Logo">
+                </div>
+            </div>
+            
+            <div class="brands-section">
+                <h2>Inspired by the World's Greatest Teams</h2>
+                <div class="brands-grid">
+                    <div class="brand-item">FC Barcelona</div>
+                    <div class="brand-item">Real Madrid</div>
+                    <div class="brand-item">Manchester United</div>
+                    <div class="brand-item">Liverpool</div>
+                    <div class="brand-item">Bayern Munich</div>
+                    <div class="brand-item">Paris Saint-Germain</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+   
+    <!-- CONTACT PAGE -->
+    <section id="contact-page" class="page-content">
+        <section class="contact-hero">
+            <div class="container">
+                <h1 class="page-title">Get In Touch</h1>
+                <p class="page-subtitle">We'd love to hear from you. Send us a message and we'll respond as soon as possible.</p>
+            </div>
+        </section>
+
+        <div class="container">
+            <div class="contact-content">
+                <div class="contact-grid">
+                    <div class="contact-form">
+                        <h2>Send us a Message</h2>
+                        <form id="contactForm" class="form">
+                            <div class="form-group">
+                                <label for="name">Full Name</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email Address</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Your Message</label>
+                                <textarea id="message" name="message" rows="5" required></textarea>
+                            </div>
+                            <button type="submit" class="submit-button">Send Message</button>
+                        </form>
+                    </div>
+                    <div class="contact-info">
+                        <h2>Contact Information</h2>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <h3>Email</h3>
+                                <p>makamocavin@gmail.com</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <h3>Phone and Whatsapp</h3>
+                                <p>072 589 3646</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <h3>Address</h3>
+                                <p>29 penelope bedworth<br>Vaal, Gauteng South Africa</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Social Media Section -->
+                        <div class="social-media-section">
+                            <h3>Connect With Us</h3>
+                            <p class="social-intro">Follow or message me on any of these platforms.</p>
+                            <div class="social-buttons">
+                                <a href="https://wa.me/27725893646" class="social-button whatsapp" target="_blank">
+                                    <i class="fab fa-whatsapp"></i>
+                                    <span>WhatsApp</span>
+                                </a>
+                                <a href="https://www.facebook.com/CavinMakamo" class="social-button facebook" target="_blank">
+                                    <i class="fab fa-facebook-f"></i>
+                                    <span>Facebook</span>
+                                </a>
+                                <a href="https://www.instagram.com/cavin_makamo" class="social-button instagram" target="_blank">
+                                    <i class="fab fa-instagram"></i>
+                                    <span>Instagram</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>EliteKits</h3>
+                <p>Premium football jerseys for true fans. Represent your team in style with our official-inspired kits.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <a href="#home" onclick="showPage('home')">Home</a>
+                <a href="#shop" onclick="showPage('shop')">Shop</a>
+                <a href="#about" onclick="showPage('about')">About</a>
+                <a href="#contact" onclick="showPage('contact')">Contact</a>
+            </div>
+            <div class="footer-section">
+                <h4>Connect With Us</h4>
+                <div class="social-links">
+                    <a href="https://wa.me/27725893646" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                    <a href="https://www.facebook.com/CavinMakamo" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/cavin_makamo" target="_blank"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 EliteKits. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Navigation Toggle
+        const navToggle = document.getElementById('navToggle');
+        const navMenu = document.getElementById('navMenu');
+        
+        navToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            navToggle.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                navToggle.classList.remove('active');
+            });
+        });
+
+        // Page Navigation System
+        function showPage(pageId) {
+            // Hide all pages
+            document.querySelectorAll('.page-content').forEach(page => {
+                page.classList.remove('active');
+            });
+            
+            // Show selected page
+            document.getElementById(`${pageId}-page`).classList.add('active');
+            
+            // Update active nav link
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('active');
+            });
+            
+            // Find and activate the corresponding nav link
+            const activeLink = document.querySelector(`.nav-link[href="#${pageId}"]`);
+            if (activeLink) {
+                activeLink.classList.add('active');
+            }
+            
+            // Scroll to top
+            window.scrollTo(0, 0);
+        }
+
+        // Filter functionality for shop page
+        const teamFilter = document.getElementById('team-filter');
+        const kitTypeFilter = document.getElementById('kit-type');
+        const jerseyItems = document.querySelectorAll('.jersey-item');
+
+        function filterJerseys() {
+            const selectedTeam = teamFilter.value;
+            const selectedKitType = kitTypeFilter.value;
+            
+            jerseyItems.forEach(item => {
+                const team = item.getAttribute('data-team');
+                const kitType = item.getAttribute('data-kit');
+                
+                const showByTeam = selectedTeam === 'all' || team === selectedTeam;
+                const showByKitType = selectedKitType === 'all' || kitType === selectedKitType;
+                
+                if (showByTeam && showByKitType) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+
+        // Initialize filters if on shop page
+        if (teamFilter && kitTypeFilter) {
+            teamFilter.addEventListener('change', filterJerseys);
+            kitTypeFilter.addEventListener('change', filterJerseys);
+        }
+
+        // Video auto-play on scroll
+        document.addEventListener('DOMContentLoaded', function() {
+            const videos = document.querySelectorAll('.fit-video');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.play();
+                    } else {
+                        entry.target.pause();
+                    }
+                });
+            }, { threshold: 0.5 });
+            
+            videos.forEach(video => {
+                observer.observe(video);
+            });
+        });
+
+        // Contact form submission
+        const contactForm = document.getElementById('contactForm');
+        if (contactForm) {
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const name = document.getElementById('name').value;
+                const email = document.getElementById('email').value;
+                const message = document.getElementById('message').value;
+                
+                // Create WhatsApp message
+                const whatsappMessage = `New Contact Form Submission:%0A%0AName: ${name}%0AEmail: ${email}%0AMessage: ${message}`;
+                
+                // Open WhatsApp with the message
+                window.open(`https://wa.me/27725893646?text=${whatsappMessage}`, '_blank');
+                
+                // Reset form
+                contactForm.reset();
+                
+                // Show success message
+                alert('Thank you for your message! We will contact you soon via WhatsApp.');
+            });
+        }
+
+        // Load More functionality
+        const loadMoreButton = document.querySelector('.load-more-button');
+        if (loadMoreButton) {
+            loadMoreButton.addEventListener('click', function() {
+                // This is a placeholder - you would load more items from your database here
+                alert('Load more functionality would be implemented with your backend system.');
+            });
+        }
+
+        // Initialize with home page
+        document.addEventListener('DOMContentLoaded', function() {
+            // Check URL hash for direct navigation
+            const hash = window.location.hash.substring(1);
+            if (hash && ['home', 'shop', 'about', 'contact'].includes(hash)) {
+                showPage(hash);
+            } else {
+                showPage('home');
+            }
+        });
+
+        // Handle browser back/forward buttons
+        window.addEventListener('hashchange', function() {
+            const hash = window.location.hash.substring(1);
+            if (hash && ['home', 'shop', 'about', 'contact'].includes(hash)) {
+                showPage(hash);
+            }
+        });
+    </script>
+</body>
+</html>
